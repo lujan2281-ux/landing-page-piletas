@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Lezcano | Iluminación y Climatización de Piletas</title>
+    <meta name="author" content="María Luján Lezcano">
+    
+    <meta name="description" content="Especialista en instalación de luces de pileta, reacondicionamiento de casetas, cambio de material filtrante y climatización Inverter en AMBA. Trabajos personalizados por Daniel Lezcano.">
+
+    <style>
+        /* --- VARIABLES DE COLOR Y FUENTES --- */
+        :root {
+            --azul-profundo: #0A2540;
+            --azul-agua: #00A8E8;
+            --blanco: #FFFFFF;
+            --gris-claro: #F4F7F6;
+            --texto-oscuro: #333333;
+            --whatsapp: #25D366;
+            --instagram: #E1306C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        header {
+            background-color: var(--blanco);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--azul-profundo);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--azul-agua);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--azul-agua);
+        }
+
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        .hero {
+            /* Acá puse el nombre exacto de tu fondo */
+            background-image: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.85)), url('fondo.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--azul-profundo);
+            color: var(--blanco);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #E0E0E0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .etiqueta-experiencia {
+            display: inline-block;
+            background-color: var(--azul-agua);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-principal {
+            background-color: var(--azul-agua);
+            color: var(--blanco);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 168, 232, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-principal:hover {
+            background-color: #008CBA;
+            transform: scale(1.05);
+        }
+
+        /* --- SECCIONES COMUNES --- */
+        .seccion {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .seccion h2 {
+            font-size: 36px;
+            color: var(--azul-profundo);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .seccion h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--azul-agua);
+            margin: 20px auto 0;
+        }
+
+        /* --- SERVICIOS --- */
+        .grid-servicios {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarjeta-servicio {
+            background-color: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tarjeta-servicio:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom-color: var(--azul-agua);
+        }
+
+        .tarjeta-servicio h3 {
+            color: var(--azul-profundo);
+            margin-bottom: 15px;
+            font-size: 20px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- GALERÍA CATEGORIZADA --- */
+        .categoria-contenedor {
+            margin-bottom: 70px;
+            padding: 30px;
+            background-color: var(--gris-claro);
+            border-radius: 20px;
+        }
+
+        .encabezado-categoria {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .icono-categoria {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .encabezado-categoria h3 {
+            color: var(--azul-profundo);
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .item-galeria {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .item-galeria:hover {
+            transform: scale(1.03);
+        }
+
+        .img-galeria {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--azul-profundo);
+            color: var(--blanco);
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        footer h3 {
+            color: var(--azul-agua);
+            margin-bottom: 20px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .link-instagram {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .link-instagram:hover {
+            color: var(--instagram);
+        }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .whatsapp-flotante {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 38px;
+            box-shadow: 2px 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-flotante:hover {
+            transform: scale(1.1);
+            background-color: #20BA58;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px; }
+            .logo { margin-bottom: 10px; }
+            nav { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; }
+            nav a { margin: 5px 10px; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 18px; }
+            .whatsapp-flotante { width: 55px; height: 55px; font-size: 32px; bottom: 20px; right: 20px; }
+            .tarjeta-servicio h3 { height: auto; }
+            .categoria-contenedor { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--azul-agua)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                <path d="M12 11v4"></path>
+            </svg>
+            Daniel <span>Lezcano</span>
+        </div>
+        <nav>
+            <a href="#servicios">Mis Servicios</a>
+            <a href="#trabajos">Portafolio</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="etiqueta-experiencia">Más de 20 años de trayectoria</span>
+        <h1>Renovamos y climatizamos tu pileta de hormigón</h1>
+        <p>Soy Daniel. Realizo trabajos personalizados, me especializo en iluminación LED, reacondicionamiento técnico integral y sistemas Inverter en toda la zona del AMBA.</p>
+        <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20estoy%20viendo%20tu%20pagina%20y%20quisiera%20consultarte%20por%20un%20trabajo." target="_blank" class="btn-principal">Contactame directamente</a>
+    </section>
+
+    <section id="servicios" class="seccion">
+        <h2>Mis Servicios Especializados</h2>
+        <div class="grid-servicios">
+            <div class="tarjeta-servicio">
+                <h3>Instalación y Cambio de Luces</h3>
+                <p>Renovación de luminarias antiguas por tecnología LED. Instalación desde cero en piletas de hormigón con armado de tableros eléctricos y disyuntores para máxima seguridad.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3>Reacondicionamiento de Casetas</h3>
+                <p>Orden y optimización de tu sala de máquinas. Solución de fugas, cambio de válvulas, llaves de paso y reestructuración completa de cañerías para un filtrado eficiente.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3>Cambio de Material Filtrante</h3>
+                <p>Reemplazo de la carga antigua (grava o arena) de tu filtro. Un mantenimiento vital para recuperar la presión del sistema y lograr que el agua vuelva a ser 100% cristalina.</p>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3>Climatización Inverter</h3>
+                <p>Instalación técnica de bombas de calor de máxima eficiencia. Adaptación de cañerías y puesta en marcha para que disfrutes de tu pileta sin importar la estación del año.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trabajos" class="seccion">
+        <h2>Portafolio de Trabajos</h2>
+        <p style="margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Conocé el detalle de mis instalaciones. Desde la obra gruesa hasta los detalles finales de iluminación y climatización, todo realizado con extrema prolijidad.</p>
+
+        <div class="categoria-contenedor">
+            <div class="encabezado-categoria">
+               <img src="logo-ilu.png" alt="Logo Iluminación" class="icono-categoria">
+                <h3>Iluminación LED</h3>
+            </div>
+            <div class="grid-galeria">
+                <div class="item-galeria"><img src="ilu1.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu2.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu3.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu4.jpeg" alt="Pileta iluminada atardecer" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu5.jpeg" alt="Pileta iluminada azul" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu6.jpeg" alt="Pileta iluminada verde" class="img-galeria"></div>
+                <div class="item-galeria"><img src="ilu7.jpeg" alt="Pileta iluminada brillante" class="img-galeria"></div>
+            </div>
+        </div>
+
+        <div class="categoria-contenedor">
+            <div class="encabezado-categoria">
+                <img src="logo-clima.png" alt="Logo Climatización" class="icono-categoria">
+                <h3>Climatización Inverter</h3>
+            </div>
+            <div class="grid-galeria">
+                <div class="item-galeria"><img src="clima1.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
+                <div class="item-galeria"><img src="clima2.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
+                <div class="item-galeria"><img src="clima3.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
+            </div>
+        </div>
+
+        <div class="categoria-contenedor">
+            <div class="encabezado-categoria">
+                <h3 style="margin-top: 15px;">Salas de Máquinas y Tableros</h3>
+            </div>
+            <div class="grid-galeria">
+                <div class="item-galeria"><img src="caseta1.jpg.jpeg" alt="Caseta de filtro" class="img-galeria"></div>
+                <div class="item-galeria"><img src="caseta2.jpg.jpeg" alt="Caseta de filtro" class="img-galeria"></div>
+                <div class="item-galeria"><img src="galeria2.jpg.jpeg" alt="Tablero eléctrico" class="img-galeria"></div>
+                <div class="item-galeria"><img src="caseta4.jpeg" alt="Nueva caseta instalada" class="img-galeria"></div>
+                <div class="item-galeria"><img src="caseta5.jpeg" alt="Conexiones de filtro y bomba" class="img-galeria"></div>
+                <div class="item-galeria"><img src="caseta6.jpeg" alt="Caseta con tablero eléctrico" class="img-galeria"></div>
+            </div>
+            </div>
+        </div>
+
+        <div class="categoria-contenedor">
+            <div class="encabezado-categoria">
+                <img src="logo-obra.png" alt="Logo En Obra" class="icono-categoria">
+                <h3>En Obra y Cañerías</h3>
+            </div>
+            <div class="grid-galeria">
+                <div class="item-galeria"><img src="obra1.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
+                <div class="item-galeria"><img src="obra2.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
+                <div class="item-galeria"><img src="obra3.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
+                <div class="item-galeria"><img src="obra4.jpeg" alt="Proceso de obra" class="img-galeria"></div>
+                <div class="item-galeria"><img src="obra5.jpeg" alt="Proceso de obra" class="img-galeria"></div>
+                <div class="item-galeria"><img src="obra6.jpeg" alt="Proceso de obra" class="img-galeria"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="contacto">
+        <h3>Pedime tu presupuesto, agendá una visita.</h3>
+        <p>Atención directa y personalizada en todo el AMBA.</p>
+        <p>📱 WhatsApp y Teléfono: 11-3657-8239</p>
+        <p>✉️ Email: instaladordaniellezcano@gmail.com</p>
+        <p>📸 Instagram: <a href="https://www.instagram.com/instaladordaniellezcano?igsh=bDB5bmt4MzQzdGFs" target="_blank" class="link-instagram">@instaladordaniellezcano</a></p>
+        <br>
+        <p style="font-size: 14px; opacity: 0.7;">&copy; 2026 Daniel Lezcano. Instalador Profesional de Piletas de Hormigón.</p>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20quisiera%20pedirte%20un%20presupuesto." class="whatsapp-flotante" target="_blank" title="Pedí tu presupuesto por WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>
