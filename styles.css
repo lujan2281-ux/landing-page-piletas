@@ -1,0 +1,243 @@
+/* ---------- Variables ---------- */
+:root {
+    --azul-profundo: #071A2B;   /* noche de pileta */
+    --azul-agua: #1FB5C9;       /* agua */
+    --gris-claro: #F2F7F7;      /* azulejo */
+    --hormigon: #5B6B76;
+    --luz: #F5B942;             /* luz LED: solo para contacto */
+    --blanco: #FFFFFF;
+    --texto-oscuro: #16232E;
+    --fuente-titulo: 'Bricolage Grotesque', system-ui, sans-serif;
+    --fuente-texto: 'Figtree', system-ui, sans-serif;
+    --hero-img: url('img/ilu5.jpeg'); /* foto del hero: cambiala por la que prefieras */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--fuente-texto);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background: var(--gris-claro);
+    color: var(--texto-oscuro);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+a:focus-visible { outline: 3px solid var(--luz); outline-offset: 3px; }
+
+.seccion, .seccion h2, .seccion p, .seccion h3 { text-align: left; }
+
+/* ---------- Header ---------- */
+header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 6vw;
+    transition: background 0.3s;
+}
+
+header.header-solido {
+    background: rgba(7, 26, 43, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fuente-titulo);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--blanco);
+}
+
+.logo span { color: var(--azul-agua); }
+
+nav a {
+    margin-left: 24px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 6px; }
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    min-height: 92svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 140px 6vw 9vh;
+    color: var(--blanco);
+    background:
+        linear-gradient(to top, rgba(7, 26, 43, 0.92) 0%, rgba(7, 26, 43, 0.4) 55%, rgba(7, 26, 43, 0.15) 100%),
+        var(--hero-img) center / cover,
+        var(--azul-profundo);
+}
+
+/* La pileta "prende las luces" al cargar */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--azul-profundo);
+    pointer-events: none;
+    animation: luces 2.4s ease-out 0.3s forwards;
+}
+
+@keyframes luces { to { opacity: 0; } }
+
+.hero-contenido { position: relative; z-index: 1; max-width: 760px; }
+
+.hero-meta { color: var(--azul-agua); font-weight: 600; margin-bottom: 12px; }
+
+.hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    max-width: 18ch;
+    margin-bottom: 20px;
+}
+
+.hero-texto { max-width: 52ch; color: rgba(255, 255, 255, 0.85); margin-bottom: 32px; }
+
+.btn-principal {
+    display: inline-block;
+    background: var(--luz);
+    color: var(--azul-profundo);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 10px;
+}
+
+.btn-principal:hover { filter: brightness(1.08); }
+
+/* ---------- Secciones ---------- */
+.seccion {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(64px, 10vw, 120px) 6vw;
+    scroll-margin-top: 80px;
+}
+
+.seccion h2 {
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    color: var(--azul-profundo);
+    margin-bottom: 32px;
+}
+
+/* Servicios: filas en vez de tarjetas */
+.grid-servicios { display: block; }
+
+.tarjeta-servicio {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 16px 48px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(7, 26, 43, 0.15);
+}
+
+.tarjeta-servicio:last-child { border-bottom: 1px solid rgba(7, 26, 43, 0.15); }
+
+.tarjeta-servicio h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); color: var(--azul-profundo); }
+
+.tarjeta-servicio p { color: var(--hormigon); }
+
+/* ---------- Portafolio ---------- */
+.categoria-contenedor { margin-bottom: 72px; }
+
+.encabezado-categoria { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+
+.icono-categoria { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; }
+
+.encabezado-categoria h3 { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--azul-profundo); }
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-flow: dense;
+    gap: 12px;
+}
+
+.item-galeria { border-radius: 10px; overflow: hidden; background: #dfe8ea; }
+
+.img-galeria { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+@media (min-width: 700px) {
+    .grid-galeria { grid-auto-rows: 220px; }
+    .item-galeria:nth-child(5n + 1) { grid-column: span 2; grid-row: span 2; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: var(--azul-profundo);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 72px max(6vw, calc((100% - 1240px) / 2));
+    scroll-margin-top: 80px;
+}
+
+footer h3 {
+    font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+    color: var(--blanco);
+    margin-bottom: 16px;
+}
+
+footer p { margin: 8px 0; }
+
+.link-instagram { color: var(--blanco); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Botón de WhatsApp ---------- */
+.barra-whatsapp {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--luz);
+    color: var(--azul-profundo);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.barra-whatsapp svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 768px) {
+    .tarjeta-servicio { grid-template-columns: 1fr; gap: 8px; }
+    .barra-whatsapp {
+        left: 0; right: 0; bottom: 0;
+        justify-content: center;
+        border-radius: 0;
+        padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+    }
+    footer { padding-bottom: 110px; }
+}
+
+@media (max-width: 560px) {
+    .logo { font-size: 1.15rem; }
+    nav a { margin-left: 14px; font-size: 0.95rem; }
+    nav a:last-child { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero::after { display: none; }
+}

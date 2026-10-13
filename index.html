@@ -5,324 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Lezcano | Iluminación y Climatización de Piletas</title>
     <meta name="author" content="María Luján Lezcano">
-    
+
     <meta name="description" content="Especialista en instalación de luces de pileta, reacondicionamiento de casetas, cambio de material filtrante y climatización Inverter en AMBA. Trabajos personalizados por Daniel Lezcano.">
 
-    <style>
-        /* --- VARIABLES DE COLOR Y FUENTES --- */
-        :root {
-            --azul-profundo: #0A2540;
-            --azul-agua: #00A8E8;
-            --blanco: #FFFFFF;
-            --gris-claro: #F4F7F6;
-            --texto-oscuro: #333333;
-            --whatsapp: #25D366;
-            --instagram: #E1306C;
-        }
+    <!-- Open Graph: vista previa al compartir por WhatsApp -->
+    <meta property="og:title" content="Daniel Lezcano | Iluminación y Climatización de Piletas">
+    <meta property="og:description" content="Luces LED, casetas, material filtrante y climatización Inverter en AMBA. Pedí tu presupuesto.">
+    <meta property="og:image" content="https://danielpiletas.com.ar/img/ilu1.jpg">
+    <meta property="og:url" content="https://danielpiletas.com.ar/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--gris-claro);
-            color: var(--texto-oscuro);
-            line-height: 1.6;
-        }
-
-        /* --- NAVEGACIÓN --- */
-        header {
-            background-color: var(--blanco);
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--azul-profundo);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo span {
-            color: var(--azul-agua);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--azul-agua);
-        }
-
-        /* --- SECCIÓN PRINCIPAL (HERO) --- */
-        .hero {
-            /* Acá puse el nombre exacto de tu fondo */
-            background-image: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.85)), url('fondo.jpg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-color: var(--azul-profundo);
-            color: var(--blanco);
-            text-align: center;
-            padding: 120px 20px;
-        }
-
-        .hero h1 {
-            font-size: 46px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #E0E0E0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .etiqueta-experiencia {
-            display: inline-block;
-            background-color: var(--azul-agua);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .btn-principal {
-            background-color: var(--azul-agua);
-            color: var(--blanco);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: background-color 0.3s, transform 0.2s;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(0, 168, 232, 0.3);
-            margin-top: 10px;
-        }
-
-        .btn-principal:hover {
-            background-color: #008CBA;
-            transform: scale(1.05);
-        }
-
-        /* --- SECCIONES COMUNES --- */
-        .seccion {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .seccion h2 {
-            font-size: 36px;
-            color: var(--azul-profundo);
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .seccion h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--azul-agua);
-            margin: 20px auto 0;
-        }
-
-        /* --- SERVICIOS --- */
-        .grid-servicios {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tarjeta-servicio {
-            background-color: var(--blanco);
-            padding: 40px 30px;
-            border-radius: 15px;
-            width: 280px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tarjeta-servicio:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-bottom-color: var(--azul-agua);
-        }
-
-        .tarjeta-servicio h3 {
-            color: var(--azul-profundo);
-            margin-bottom: 15px;
-            font-size: 20px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* --- GALERÍA CATEGORIZADA --- */
-        .categoria-contenedor {
-            margin-bottom: 70px;
-            padding: 30px;
-            background-color: var(--gris-claro);
-            border-radius: 20px;
-        }
-
-        .encabezado-categoria {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .icono-categoria {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
-        }
-
-        .encabezado-categoria h3 {
-            color: var(--azul-profundo);
-            font-size: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .grid-galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .item-galeria {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-
-        .item-galeria:hover {
-            transform: scale(1.03);
-        }
-
-        .img-galeria {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* --- PIE DE PÁGINA --- */
-        footer {
-            background-color: var(--azul-profundo);
-            color: var(--blanco);
-            text-align: center;
-            padding: 50px 20px;
-        }
-        
-        footer h3 {
-            color: var(--azul-agua);
-            margin-bottom: 20px;
-        }
-        
-        footer p {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .link-instagram {
-            color: var(--blanco);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .link-instagram:hover {
-            color: var(--instagram);
-        }
-
-        /* --- WHATSAPP FLOTANTE --- */
-        .whatsapp-flotante {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--whatsapp);
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 38px;
-            box-shadow: 2px 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        .whatsapp-flotante:hover {
-            transform: scale(1.1);
-            background-color: #20BA58;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px; }
-            .logo { margin-bottom: 10px; }
-            nav { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; }
-            nav a { margin: 5px 10px; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 18px; }
-            .whatsapp-flotante { width: 55px; height: 55px; font-size: 32px; bottom: 20px; right: 20px; }
-            .tarjeta-servicio h3 { height: auto; }
-            .categoria-contenedor { padding: 15px; }
-        }
-    </style>
+    <!-- Fuentes y estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--azul-agua)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--azul-agua)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
                 <path d="M12 11v4"></path>
             </svg>
@@ -336,10 +41,12 @@
     </header>
 
     <section class="hero">
-        <span class="etiqueta-experiencia">Más de 20 años de trayectoria</span>
-        <h1>Renovamos y climatizamos tu pileta de hormigón</h1>
-        <p>Soy Daniel. Realizo trabajos personalizados, me especializo en iluminación LED, reacondicionamiento técnico integral y sistemas Inverter en toda la zona del AMBA.</p>
-        <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20estoy%20viendo%20tu%20pagina%20y%20quisiera%20consultarte%20por%20un%20trabajo." target="_blank" class="btn-principal">Contactame directamente</a>
+        <div class="hero-contenido">
+            <p class="hero-meta">Más de 20 años de trayectoria</p>
+            <h1>Renovamos y climatizamos tu pileta de hormigón</h1>
+            <p class="hero-texto">Soy Daniel. Realizo trabajos personalizados, me especializo en iluminación LED, reacondicionamiento técnico integral y sistemas Inverter en toda la zona del AMBA.</p>
+            <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20estoy%20viendo%20tu%20pagina%20y%20quisiera%20consultarte%20por%20un%20trabajo." target="_blank" rel="noopener noreferrer" class="btn-principal">Pedir presupuesto</a>
+        </div>
     </section>
 
     <section id="servicios" class="seccion">
@@ -366,66 +73,64 @@
 
     <section id="trabajos" class="seccion">
         <h2>Portafolio de Trabajos</h2>
-        <p style="margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Conocé el detalle de mis instalaciones. Desde la obra gruesa hasta los detalles finales de iluminación y climatización, todo realizado con extrema prolijidad.</p>
+        <p style="margin-bottom: 40px; max-width: 700px;">Conocé el detalle de mis instalaciones. Desde la obra gruesa hasta los detalles finales de iluminación y climatización, todo realizado con extrema prolijidad.</p>
 
         <div class="categoria-contenedor">
             <div class="encabezado-categoria">
-               <img src="logo-ilu.png" alt="Logo Iluminación" class="icono-categoria">
+                <img src="img/logo-ilu.png" alt="Logo Iluminación" class="icono-categoria">
                 <h3>Iluminación LED</h3>
             </div>
             <div class="grid-galeria">
-                <div class="item-galeria"><img src="ilu1.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu2.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu3.jpg.jpeg" alt="Pileta iluminada" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu4.jpeg" alt="Pileta iluminada atardecer" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu5.jpeg" alt="Pileta iluminada azul" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu6.jpeg" alt="Pileta iluminada verde" class="img-galeria"></div>
-                <div class="item-galeria"><img src="ilu7.jpeg" alt="Pileta iluminada brillante" class="img-galeria"></div>
+                <div class="item-galeria"><img src="img/ilu1.jpg" alt="Pileta de hormigón con iluminación LED" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu2.jpg" alt="Pileta de hormigón con iluminación LED" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu3.jpg" alt="Pileta de hormigón con iluminación LED" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu4.jpeg" alt="Pileta iluminada al atardecer" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu5.jpeg" alt="Pileta con luces LED azules" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu6.jpeg" alt="Pileta con luces LED verdes" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/ilu7.jpeg" alt="Pileta con iluminación LED brillante" class="img-galeria" loading="lazy"></div>
             </div>
         </div>
 
         <div class="categoria-contenedor">
             <div class="encabezado-categoria">
-                <img src="logo-clima.png" alt="Logo Climatización" class="icono-categoria">
+                <img src="img/logo-clima.png" alt="Logo Climatización" class="icono-categoria">
                 <h3>Climatización Inverter</h3>
             </div>
             <div class="grid-galeria">
-                <div class="item-galeria"><img src="clima1.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
-                <div class="item-galeria"><img src="clima2.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
-                <div class="item-galeria"><img src="clima3.jpg.jpeg" alt="Equipo Inverter" class="img-galeria"></div>
+                <div class="item-galeria"><img src="img/clima1.jpg" alt="Bomba de calor Inverter instalada" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/clima2.jpg" alt="Bomba de calor Inverter instalada" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/clima3.jpg" alt="Bomba de calor Inverter instalada" class="img-galeria" loading="lazy"></div>
             </div>
         </div>
 
         <div class="categoria-contenedor">
             <div class="encabezado-categoria">
-                <h3 style="margin-top: 15px;">Salas de Máquinas y Tableros</h3>
+                <h3>Salas de Máquinas y Tableros</h3>
             </div>
             <div class="grid-galeria">
-                <div class="item-galeria"><img src="caseta1.jpg.jpeg" alt="Caseta de filtro" class="img-galeria"></div>
-                <div class="item-galeria"><img src="caseta2.jpg.jpeg" alt="Caseta de filtro" class="img-galeria"></div>
-                <div class="item-galeria"><img src="galeria2.jpg.jpeg" alt="Tablero eléctrico" class="img-galeria"></div>
-                <div class="item-galeria"><img src="caseta4.jpeg" alt="Nueva caseta instalada" class="img-galeria"></div>
-                <div class="item-galeria"><img src="caseta5.jpeg" alt="Conexiones de filtro y bomba" class="img-galeria"></div>
-                <div class="item-galeria"><img src="caseta6.jpeg" alt="Caseta con tablero eléctrico" class="img-galeria"></div>
-            </div>
+                <div class="item-galeria"><img src="img/caseta1.jpg" alt="Caseta de filtro" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/caseta2.jpg" alt="Caseta de filtro" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/galeria2.jpg" alt="Tablero eléctrico" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/caseta4.jpeg" alt="Nueva caseta instalada" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/caseta5.jpeg" alt="Conexiones de filtro y bomba" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/caseta6.jpeg" alt="Caseta con tablero eléctrico" class="img-galeria" loading="lazy"></div>
             </div>
         </div>
 
         <div class="categoria-contenedor">
             <div class="encabezado-categoria">
-                <img src="logo-obra.png" alt="Logo En Obra" class="icono-categoria">
+                <img src="img/logo-obra.png" alt="Logo En Obra" class="icono-categoria">
                 <h3>En Obra y Cañerías</h3>
             </div>
             <div class="grid-galeria">
-                <div class="item-galeria"><img src="obra1.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
-                <div class="item-galeria"><img src="obra2.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
-                <div class="item-galeria"><img src="obra3.jpg.jpeg" alt="Obra de cañerías" class="img-galeria"></div>
-                <div class="item-galeria"><img src="obra4.jpeg" alt="Proceso de obra" class="img-galeria"></div>
-                <div class="item-galeria"><img src="obra5.jpeg" alt="Proceso de obra" class="img-galeria"></div>
-                <div class="item-galeria"><img src="obra6.jpeg" alt="Proceso de obra" class="img-galeria"></div>
+                <div class="item-galeria"><img src="img/obra1.jpg" alt="Obra de cañerías" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/obra2.jpg" alt="Obra de cañerías" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/obra3.jpg" alt="Obra de cañerías" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/obra4.jpeg" alt="Proceso de obra" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/obra5.jpeg" alt="Proceso de obra" class="img-galeria" loading="lazy"></div>
+                <div class="item-galeria"><img src="img/obra6.jpeg" alt="Proceso de obra" class="img-galeria" loading="lazy"></div>
             </div>
         </div>
-
     </section>
 
     <footer id="contacto">
@@ -433,13 +138,14 @@
         <p>Atención directa y personalizada en todo el AMBA.</p>
         <p>📱 WhatsApp y Teléfono: 11-3657-8239</p>
         <p>✉️ Email: instaladordaniellezcano@gmail.com</p>
-        <p>📸 Instagram: <a href="https://www.instagram.com/instaladordaniellezcano?igsh=bDB5bmt4MzQzdGFs" target="_blank" class="link-instagram">@instaladordaniellezcano</a></p>
+        <p>📸 Instagram: <a href="https://www.instagram.com/instaladordaniellezcano?igsh=bDB5bmt4MzQzdGFs" target="_blank" rel="noopener noreferrer" class="link-instagram">@instaladordaniellezcano</a></p>
         <br>
         <p style="font-size: 14px; opacity: 0.7;">&copy; 2026 Daniel Lezcano. Instalador Profesional de Piletas de Hormigón.</p>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20quisiera%20pedirte%20un%20presupuesto." class="whatsapp-flotante" target="_blank" title="Pedí tu presupuesto por WhatsApp">
-        💬
+    <a href="https://api.whatsapp.com/send?phone=5491136578239&text=Hola%20Daniel,%20quisiera%20pedirte%20un%20presupuesto." class="barra-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Pedir presupuesto por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Pedir presupuesto
     </a>
 
 </body>
