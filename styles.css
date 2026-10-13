@@ -7,8 +7,8 @@
     --luz: #F5B942;             /* luz LED: solo para contacto */
     --blanco: #FFFFFF;
     --texto-oscuro: #16232E;
-    --fuente-titulo: 'Bricolage Grotesque', system-ui, sans-serif;
-    --fuente-texto: 'Figtree', system-ui, sans-serif;
+    --fuente-titulo: 'Manrope', system-ui, sans-serif;
+    --fuente-texto: 'Manrope', system-ui, sans-serif;
     --hero-img: url('img/ilu5.jpeg'); /* foto del hero: cambiala por la que prefieras */
 }
 
@@ -180,6 +180,47 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
     .grid-galeria { grid-auto-rows: 220px; }
     .item-galeria:nth-child(5n + 1) { grid-column: span 2; grid-row: span 2; }
 }
+
+.img-galeria { cursor: zoom-in; }
+
+/* ---------- Testimonios ---------- */
+.grid-testimonios { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+
+.testimonio { border-left: 3px solid var(--azul-agua); padding: 4px 0 4px 20px; }
+
+.testimonio p { font-size: 1.15rem; color: var(--texto-oscuro); }
+
+.testimonio cite { display: block; margin-top: 12px; font-style: normal; font-weight: 600; color: var(--hormigon); }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+    border: 0;
+    background: var(--azul-profundo);
+    width: 100vw; max-width: 100vw;
+    height: 100dvh; max-height: 100dvh;
+    padding: 5vh 6vw;
+}
+
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+
+.lightbox::backdrop { background: var(--azul-profundo); }
+
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+
+.lightbox button {
+    position: absolute;
+    background: none;
+    border: 0;
+    color: var(--blanco);
+    font-size: 2.6rem;
+    line-height: 1;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.lb-cerrar { top: 8px; right: 12px; }
+.lb-prev { left: 4px; top: 50%; transform: translateY(-50%); }
+.lb-sig { right: 4px; top: 50%; transform: translateY(-50%); }
 
 /* ---------- Footer ---------- */
 footer {
