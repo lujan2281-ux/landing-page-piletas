@@ -64,7 +64,7 @@ header.header-solido {
     color: var(--blanco);
 }
 
-.logo span { color: var(--azul-agua); }
+.logo-nombre span { color: var(--azul-agua); }
 
 nav a {
     margin-left: 24px;
@@ -220,23 +220,52 @@ nav a:hover {
 
 .encabezado-categoria h3 { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--azul-profundo); }
 
+/* Celular: siempre dos columnas */
 .grid-galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-flow: dense;
-    gap: 12px;
+    gap: 8px;
 }
 
 .item-galeria { border-radius: var(--radio); overflow: hidden; background: #dfe8ea; }
 
 .img-galeria { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
-@media (min-width: 700px) {
-    .grid-galeria { grid-auto-rows: 220px; }
-    .item-galeria:nth-child(5n + 1) { grid-column: span 2; grid-row: span 2; }
+.img-galeria { cursor: zoom-in; }
+
+/* Celular: cada categoría muestra 4 fotos y el resto aparece con "Ver más" */
+.btn-ver-mas {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 24px;
+    background: transparent;
+    color: var(--azul-profundo);
+    border: 2px solid var(--azul-profundo);
+    border-radius: var(--radio);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.img-galeria { cursor: zoom-in; }
+.btn-ver-mas:hover { background: var(--azul-profundo); color: var(--blanco); }
+
+.btn-ver-mas:focus-visible { outline: 3px solid var(--luz); outline-offset: 3px; }
+
+@media (max-width: 699px) {
+    .grid-galeria.recortada .item-galeria:nth-child(n + 5) { display: none; }
+}
+
+@media (min-width: 700px) {
+    .grid-galeria {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-auto-rows: 220px;
+        gap: 12px;
+    }
+    .item-galeria:nth-child(5n + 1) { grid-column: span 2; grid-row: span 2; }
+    .btn-ver-mas { display: none; }
+}
 
 /* ---------- Testimonios ---------- */
 .grid-testimonios { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
@@ -325,6 +354,14 @@ footer p { margin: 8px 0; }
     padding: 14px 22px;
     border-radius: var(--radio);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Se esconde mientras ya se ve el botón del hero o el del footer */
+.barra-whatsapp.barra-oculta {
+    transform: translateY(120%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .barra-whatsapp svg { width: 22px; height: 22px; fill: currentColor; }
@@ -339,15 +376,20 @@ footer p { margin: 8px 0; }
         padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
     }
     footer { padding-bottom: 110px; }
+
+    /* Footer: etiqueta arriba y dato abajo, igual en las tres filas */
+    .contacto-etiqueta { display: block; min-width: 0; margin-bottom: 2px; }
+    footer .link-contacto { overflow-wrap: anywhere; }
 }
 
+/* Celular: header solo con el logo; el contacto lo resuelve la barra de WhatsApp */
 @media (max-width: 560px) {
     .logo { font-size: 1.15rem; }
-    nav a { margin-left: 14px; font-size: 0.95rem; }
-    nav a:last-child { display: none; }
+    nav { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .hero::after { display: none; }
+    .barra-whatsapp { transition: none; }
 }

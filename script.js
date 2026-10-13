@@ -48,3 +48,41 @@ document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') mostrar(actual + 1);
     if (e.key === 'ArrowLeft') mostrar(actual - 1);
 });
+
+/* ---------- "Ver más" en la galería (solo se nota en celular) ---------- */
+const FOTOS_VISIBLES = 4;
+
+document.querySelectorAll('.grid-galeria').forEach(function (grid) {
+    const total = grid.querySelectorAll('.item-galeria').length;
+    if (total <= FOTOS_VISIBLES) return;
+
+    grid.classList.add('recortada');
+
+    const boton = document.createElement('button');
+    boton.type = 'button';
+    boton.className = 'btn-ver-mas';
+    boton.textContent = 'Ver más fotos (' + (total - FOTOS_VISIBLES) + ')';
+    boton.addEventListener('click', function () {
+        grid.classList.remove('recortada');
+        boton.remove();
+    });
+    grid.after(boton);
+});
+
+/* ---------- Barra de WhatsApp: se esconde si ya se ve otro botón de contacto ---------- */
+const barra = document.querySelector('.barra-whatsapp');
+const botonesContacto = document.querySelectorAll('.hero .btn-principal, .btn-footer');
+
+if (barra && botonesContacto.length && 'IntersectionObserver' in window) {
+    const visibles = new Set();
+
+    const observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+            if (entrada.isIntersecting) visibles.add(entrada.target);
+            else visibles.delete(entrada.target);
+        });
+        barra.classList.toggle('barra-oculta', visibles.size > 0);
+    });
+
+    botonesContacto.forEach(function (boton) { observador.observe(boton); });
+}
