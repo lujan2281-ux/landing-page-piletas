@@ -1,12 +1,14 @@
 /* ---------- Variables ---------- */
 :root {
     --azul-profundo: #071A2B;   /* noche de pileta */
-    --azul-agua: #1FB5C9;       /* agua */
+    --azul-agua: #1FB5C9;       /* agua (sobre fondos oscuros) */
+    --agua-oscuro: #0B7285;     /* agua (texto sobre fondos claros, buen contraste) */
     --gris-claro: #F2F7F7;      /* azulejo */
     --hormigon: #5B6B76;
     --luz: #F5B942;             /* luz LED: solo para contacto */
     --blanco: #FFFFFF;
     --texto-oscuro: #16232E;
+    --radio: 10px;              /* un solo radio para botones, fotos e íconos */
     --fuente-titulo: 'Manrope', system-ui, sans-serif;
     --fuente-texto: 'Manrope', system-ui, sans-serif;
     --hero-img: url('img/ilu5.jpeg'); /* foto del hero: cambiala por la que prefieras */
@@ -46,10 +48,10 @@ header {
     transition: background 0.3s;
 }
 
+/* Al hacer scroll: azul noche sólido, sin efecto de vidrio */
 header.header-solido {
-    background: rgba(7, 26, 43, 0.88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--azul-profundo);
+    box-shadow: 0 1px 0 rgba(31, 181, 201, 0.25);
 }
 
 .logo {
@@ -71,7 +73,12 @@ nav a {
     font-weight: 500;
 }
 
-nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 6px; }
+nav a:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+    text-decoration-color: var(--azul-agua);
+    text-underline-offset: 6px;
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -113,6 +120,12 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
 
 .hero-texto { max-width: 52ch; color: rgba(255, 255, 255, 0.85); margin-bottom: 32px; }
 
+.hero-confianza {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .btn-principal {
     display: inline-block;
     background: var(--luz);
@@ -120,17 +133,29 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
     font-weight: 700;
     text-decoration: none;
     padding: 16px 28px;
-    border-radius: 10px;
+    border-radius: var(--radio);
 }
 
 .btn-principal:hover { filter: brightness(1.08); }
 
 /* ---------- Secciones ---------- */
+/* Ancho completo para poder alternar el fondo; el contenido se mantiene en 1240px */
 .seccion {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: clamp(64px, 10vw, 120px) 6vw;
+    padding: clamp(64px, 10vw, 120px) max(6vw, calc((100% - 1240px) / 2));
     scroll-margin-top: 80px;
+}
+
+#servicios { background: var(--blanco); }
+#trabajos { background: var(--gris-claro); }
+#testimonios { background: var(--blanco); }
+
+.etiqueta {
+    color: var(--agua-oscuro);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 .seccion h2 {
@@ -139,8 +164,10 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
     margin-bottom: 32px;
 }
 
-/* Servicios: filas en vez de tarjetas */
-.grid-servicios { display: block; }
+.intro-seccion { margin-bottom: 40px; max-width: 700px; }
+
+/* Servicios: filas numeradas en vez de tarjetas */
+.grid-servicios { display: block; counter-reset: servicio; }
 
 .tarjeta-servicio {
     display: grid;
@@ -148,20 +175,48 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
     gap: 16px 48px;
     padding: 28px 0;
     border-top: 1px solid rgba(7, 26, 43, 0.15);
+    transition: border-color 0.2s;
 }
+
+.tarjeta-servicio:hover { border-top-color: var(--agua-oscuro); }
 
 .tarjeta-servicio:last-child { border-bottom: 1px solid rgba(7, 26, 43, 0.15); }
 
 .tarjeta-servicio h3 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); color: var(--azul-profundo); }
+
+.tarjeta-servicio h3::before {
+    counter-increment: servicio;
+    content: counter(servicio, decimal-leading-zero);
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--agua-oscuro);
+}
 
 .tarjeta-servicio p { color: var(--hormigon); }
 
 /* ---------- Portafolio ---------- */
 .categoria-contenedor { margin-bottom: 72px; }
 
+.categoria-contenedor:last-child { margin-bottom: 0; }
+
 .encabezado-categoria { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
 
-.icono-categoria { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; }
+/* Ícono de categoría: mismo tamaño, color y radio para las cuatro */
+.icono-categoria {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radio);
+    background: var(--azul-profundo);
+    color: var(--azul-agua);
+}
+
+.icono-categoria svg { width: 24px; height: 24px; }
 
 .encabezado-categoria h3 { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--azul-profundo); }
 
@@ -172,7 +227,7 @@ nav a:hover { color: var(--blanco); text-decoration: underline; text-underline-o
     gap: 12px;
 }
 
-.item-galeria { border-radius: 10px; overflow: hidden; background: #dfe8ea; }
+.item-galeria { border-radius: var(--radio); overflow: hidden; background: #dfe8ea; }
 
 .img-galeria { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
@@ -230,7 +285,7 @@ footer {
     scroll-margin-top: 80px;
 }
 
-footer h3 {
+footer h2 {
     font-size: clamp(1.7rem, 3.5vw, 2.5rem);
     color: var(--blanco);
     margin-bottom: 16px;
@@ -238,7 +293,21 @@ footer h3 {
 
 footer p { margin: 8px 0; }
 
-.link-instagram { color: var(--blanco); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.btn-footer { margin: 20px 0 24px; }
+
+.contacto-etiqueta {
+    display: inline-block;
+    min-width: 92px;
+    color: var(--azul-agua);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.link-contacto { color: var(--blanco); font-weight: 600; text-underline-offset: 4px; }
+
+.copyright { margin-top: 40px; font-size: 0.875rem; opacity: 0.7; }
 
 /* ---------- Botón de WhatsApp ---------- */
 .barra-whatsapp {
@@ -254,7 +323,7 @@ footer p { margin: 8px 0; }
     font-weight: 700;
     text-decoration: none;
     padding: 14px 22px;
-    border-radius: 12px;
+    border-radius: var(--radio);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
