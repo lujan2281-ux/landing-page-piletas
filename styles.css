@@ -255,6 +255,10 @@ nav a:hover {
 
 @media (max-width: 699px) {
     .grid-galeria.recortada .item-galeria:nth-child(n + 5) { display: none; }
+
+    /* Si queda una foto suelta en la última fila, ocupa todo el ancho */
+    .item-galeria:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .item-galeria:last-child:nth-child(odd) .img-galeria { aspect-ratio: 16 / 9; }
 }
 
 @media (min-width: 700px) {
