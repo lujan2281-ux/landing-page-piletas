@@ -142,7 +142,19 @@ nav a:hover {
     font-weight: 800;
     letter-spacing: -0.025em;
     max-width: 18ch;
+    margin-bottom: 16px;
+}
+
+/* Segundo nivel del título: especialidades, en mayúsculas y más liviano */
+.hero-lema {
+    max-width: 52ch;
     margin-bottom: 20px;
+    font-size: clamp(0.8rem, 1.6vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .hero-texto { max-width: 52ch; color: rgba(255, 255, 255, 0.85); margin-bottom: 32px; }
