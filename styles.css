@@ -11,7 +11,7 @@
     --radio: 10px;              /* un solo radio para botones, fotos e íconos */
     --fuente-titulo: 'Manrope', system-ui, sans-serif;
     --fuente-texto: 'Manrope', system-ui, sans-serif;
-    --hero-img: url('img/ilu5.jpeg'); /* foto del hero: cambiala por la que prefieras */
+    --hero-img: url('img/ilu1.jpg'); /* foto del hero: cambiala por la que prefieras */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,6 +66,8 @@ header.header-solido {
 
 .logo-nombre span { color: var(--azul-agua); }
 
+nav { display: flex; align-items: center; }
+
 nav a {
     margin-left: 24px;
     color: rgba(255, 255, 255, 0.85);
@@ -80,6 +82,32 @@ nav a:hover {
     text-underline-offset: 6px;
 }
 
+/* Teléfono y botón: solo en pantallas anchas (en celular lo cubre la barra de WhatsApp) */
+.nav-telefono, .btn-nav { display: none; }
+
+.nav-telefono { color: var(--blanco); font-weight: 700; }
+
+.btn-nav {
+    padding: 9px 18px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--radio);
+    color: var(--blanco);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-nav:hover {
+    background: var(--luz);
+    border-color: var(--luz);
+    color: var(--azul-profundo);
+    text-decoration: none;
+}
+
+@media (min-width: 900px) {
+    .nav-telefono, .btn-nav { display: inline-block; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
     position: relative;
@@ -89,7 +117,8 @@ nav a:hover {
     padding: 140px 6vw 9vh;
     color: var(--blanco);
     background:
-        linear-gradient(to top, rgba(7, 26, 43, 0.92) 0%, rgba(7, 26, 43, 0.4) 55%, rgba(7, 26, 43, 0.15) 100%),
+        linear-gradient(to bottom, rgba(7, 26, 43, 0.55) 0, rgba(7, 26, 43, 0) 160px),
+        linear-gradient(to top, rgba(7, 26, 43, 0.92) 0%, rgba(7, 26, 43, 0.5) 55%, rgba(7, 26, 43, 0.15) 100%),
         var(--hero-img) center / cover,
         var(--azul-profundo);
 }
@@ -108,8 +137,6 @@ nav a:hover {
 
 .hero-contenido { position: relative; z-index: 1; max-width: 760px; }
 
-.hero-meta { color: var(--azul-agua); font-weight: 600; margin-bottom: 12px; }
-
 .hero h1 {
     font-size: clamp(2.4rem, 6vw, 4.6rem);
     font-weight: 800;
@@ -120,10 +147,37 @@ nav a:hover {
 
 .hero-texto { max-width: 52ch; color: rgba(255, 255, 255, 0.85); margin-bottom: 32px; }
 
-.hero-confianza {
-    margin-top: 20px;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.75);
+/* Franja de datos reales al pie del hero */
+.hero-datos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    gap: 24px clamp(20px, 5vw, 56px);
+    margin-top: 40px;
+}
+
+.hero-datos li::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    margin-bottom: 10px;
+    background: var(--azul-agua);
+}
+
+.hero-datos strong {
+    display: block;
+    font-size: clamp(1.15rem, 3.5vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.hero-datos span {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .btn-principal {
